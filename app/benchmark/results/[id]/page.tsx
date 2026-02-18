@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import Link from 'next/link';
+import ShareableResultCard from '@/components/ShareableResultCard';
 
 interface ResultsPageProps {
   params: Promise<{ id: string }>;
@@ -113,8 +114,17 @@ export default function ResultsPage({ params }: ResultsPageProps) {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2">Your Results</h1>
-          <p className="text-slate-300 text-lg">{result.tool}</p>
+          <h1 className="text-4xl font-bold text-white mb-2">Your Memory Score</h1>
+          <p className="text-slate-300 text-lg">Tool: <span className="text-purple-400 font-bold">{result.tool}</span></p>
+        </div>
+
+        {/* Shareable Result Card */}
+        <div className="mb-8">
+          <ShareableResultCard
+            toolName={result.tool}
+            score={result.total_score}
+            grade={result.grade}
+          />
         </div>
 
         {/* Overall Score Card */}

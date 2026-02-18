@@ -1,0 +1,8 @@
+.git
+.env.example
+.env.local
+node_modules
+.next/cache
+BUILD_SUMMARY.md
+STRUCTURE.md
+DELIVERY.md
